@@ -25,19 +25,15 @@ public class Ball : MonoBehaviour
     void Update()
     {
 
-        /*
+        
         if(!hasStarted)
         {
             LockBallToPaddle();
             LaunchOnMouseClick();
         }
-        */
+        
 
-         LaunchOnMouseClick();
-         if(hasStarted == false)
-        {
-            LockBallToPaddle();
-        }
+         
     }
 
 
