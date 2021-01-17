@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    //config params
     [SerializeField] int breakableBlocks; // for debugging
 
-    //cache references
-    Level level;
+    //cached references
+    SceneLoader sceneLoader;
+
+    private void Start()
+    {
+        sceneLoader = FindObjectOfType<SceneLoader>();
+    }
+
+
 
     public void CountBreakableBlocks()
     {
         breakableBlocks++;
     }
 
-    private void Start()
+    public void BlockDestroyed()
     {
-        level = FindObjectOfType<Level>();
+        breakableBlocks--;
+        if(breakableBlocks <= 0)
+        {
+            sceneLoader.LoadNextScene();
+        }
     }
+
 }
